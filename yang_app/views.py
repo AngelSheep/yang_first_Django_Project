@@ -40,5 +40,3 @@ def test2(request):
     print("我是app下的test2")
     return HttpResponse("我是app下的test2")
 
-def testyy(request):
-    pass
