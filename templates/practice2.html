@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小羊-练习2</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        .box{
+            width:300px;
+            margin:10px auto;
+            border:1px solid #ccc;
+            padding:10px;
+        }
+        h3{
+            margin:50px auto;
+            text-align: center;
+            color:black;
+        }
+        label{
+            display:inline;
+            font-size:15px;
+        }
+        input{
+            border:1px solid #cccccc;
+            height:35px;
+        }
+    </style>
+</head>
+<body>
+    <h3>登录</h3>
+    <div class="box">
+        <form action="http://172.16.8.23:8080/yang" name="myform" onsubmit="return testForm();">
+            <div class="form-group" style="padding-left: 5px;">
+                <label for="exampleInputEmail1">用户名：</label>
+                <input type="text" name="userName" placeholder="用户名" style="padding-left: 5px;">
+            </div>
+            <div class="form-group" style="padding-left: 5px;">
+                <label for="exampleInputPassword1">密&nbsp&nbsp&nbsp&nbsp码：</label>
+                <input type="password" name="pwds" placeholder="密码" style="padding-left: 5px;">
+            </div>
+            <br>
+            <br>
+            <div style="text-align: right">
+                <button type="submit" class="btn btn-default" id = "login">登录</button>
+                <button type="button" class="btn btn-default">注册</button>
+            </div>
+        </form>
+
+    </div>
+    <script src = "/static/js/jquery.js"></script>
+    <script src = "/static/js/bootstrap.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var $a = document.getElementById("login");
+            function testForm(){
+                var userNameValue = document.myform.userName.value;
+                var pwdValue = document.myform.pwds.value;
+                var userNameReg = /^ *\w{6,32} *$/;
+                var isUserOk = userNameReg.test(userNameValue);
+                if(isUserOk==false){
+                    alert("成功")
+                    return true;
+                }else{
+                    alert("失败~~~")
+                    return false;
+                }
+            }
+
+{#            $a.onclick = function () {#}
+{#                var $user = document.getElementsByTagName("input")[0];#}
+{#                var $pwd = document.getElementsByTagName("input")[1];#}
+{#                if($user.value == "123" && $pwd.value == "123"){#}
+{#                    alert("恭喜！登录成功！");#}
+{#                    console.log($user.value,$pwd.value)#}
+{#                    console.log("姓名：",{{ name }});#}
+{#                    location.href="http://172.16.8.23:8080/yang";#}
+{#                }#}
+{#                else{#}
+{#                    alert("登录失败，")#}
+{#                }#}
+{#            }#}
+
+
+
+
+        })
+    </script>
+</body>
+</html>
